@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TARBIZ — Interactive Corporate Space Experience</title>
+<meta name="description" content="Interactive TARBIZ corporate venue experience in Kuala Lumpur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d1726;--paper:#f5f1e8;--white:#fff;--red:#c92f35;--muted:#6c7480;--line:rgba(13,23,38,.14);--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0b121d;color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}img{display:block;width:100%}
+#loader{position:fixed;inset:0;z-index:9999;background:#f8f7f3;color:var(--ink);display:grid;place-items:center;transition:.8s var(--ease)}#loader.hide{opacity:0;visibility:hidden}.load-inner{text-align:center}.mark{width:72px;height:72px;margin:auto;border-radius:22px;background:var(--red);display:grid;place-items:center;color:#fff;font:800 26px Manrope;box-shadow:0 18px 50px rgba(201,47,53,.25)}.load-inner strong{display:block;margin-top:18px;letter-spacing:.25em;font:800 18px Manrope}.loadbar{width:200px;height:2px;background:#ddd;margin:22px auto 0;overflow:hidden}.loadbar i{display:block;width:38%;height:100%;background:var(--red);animation:load 1.1s infinite var(--ease)}@keyframes load{0%{transform:translateX(-120%)}100%{transform:translateX(330%)}}
+.header{position:fixed;z-index:200;top:0;left:0;right:0;height:84px;display:flex;align-items:center;transition:.35s}.header.scrolled{height:68px;background:rgba(8,14,24,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}.nav{width:min(1320px,calc(100% - 48px));margin:auto;display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:11px}.logo-box{width:40px;height:40px;border-radius:12px;background:var(--red);display:grid;place-items:center;font:800 13px Manrope}.logo-text b{display:block;font:800 17px Manrope;letter-spacing:.14em}.logo-text span{font-size:8px;letter-spacing:.15em;color:#abb4c0}.navlinks{display:flex;align-items:center;gap:26px;font-size:12px;color:#d6dbe2}.navlinks a{position:relative}.navlinks a:after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:#fff;transform:scaleX(0);transition:.25s}.navlinks a:hover:after{transform:scaleX(1)}.navcta{padding:11px 18px;border-radius:999px;background:var(--red);font-weight:700;color:#fff}.burger{display:none;border:0;background:none;color:#fff;font-size:25px}
+.hero{height:120vh;position:relative}.hero-sticky{height:100vh;position:sticky;top:0;overflow:hidden}.hero-bg{position:absolute;inset:-6%;background:url('https://res.cloudinary.com/dayfv4et9/image/upload/w_1800/q_auto/f_auto/501317_605_%281%29.jpeg') center/cover;transform:scale(1.08);will-change:transform}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,10,18,.88) 0%,rgba(5,10,18,.55) 42%,rgba(5,10,18,.14) 76%),linear-gradient(0deg,rgba(5,10,18,.48),transparent 55%)}.hero-copy{position:absolute;left:max(28px,calc((100vw - 1280px)/2));top:50%;transform:translateY(-47%);width:min(730px,72vw)}.kicker{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.23em;text-transform:uppercase;color:#f0b9bc;font-weight:800}.kicker:before{content:"";width:34px;height:1px;background:currentColor}.hero h1{font:700 clamp(58px,8vw,122px)/.88 Manrope;letter-spacing:-.065em;margin:20px 0 24px}.hero h1 span{display:block;color:#ef5d64}.hero p{font-size:17px;line-height:1.8;color:#d0d5dc;max-width:580px}.hero-actions{margin-top:32px;display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.3s var(--ease)}.btn:hover{transform:translateY(-3px)}.btn-red{background:var(--red);color:#fff}.btn-glass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(12px)}.scrollhint{position:absolute;right:48px;bottom:42px;display:flex;align-items:center;gap:12px;color:#c9d0da;font-size:10px;letter-spacing:.16em;text-transform:uppercase}.mouse{width:25px;height:40px;border:1px solid rgba(255,255,255,.48);border-radius:18px;position:relative}.mouse:after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;background:#fff;border-radius:3px;animation:wheel 1.5s infinite}@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,14px)}}
+.intro{background:var(--paper);color:var(--ink);padding:140px 24px 110px}.intro-inner{max-width:1100px;margin:auto}.intro-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:800}.intro h2{font:700 clamp(42px,6.5vw,88px)/1.02 Manrope;letter-spacing:-.05em;margin:22px 0}.intro h2 .soft{color:#a79f92}.intro p{max-width:680px;margin-left:auto;font-size:17px;line-height:1.9;color:#626a74}
+.story{background:#07111d}.story-track{height:430vh;position:relative}.story-sticky{position:sticky;top:0;height:100vh;overflow:hidden}.story-image{position:absolute;inset:0}.story-image img{position:absolute;inset:0;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .45s ease}.story-image img.active{opacity:1}.story-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,12,21,.92) 0%,rgba(6,12,21,.45) 47%,rgba(6,12,21,.12)),linear-gradient(0deg,rgba(6,12,21,.35),transparent)}.story-ui{position:absolute;inset:0;display:grid;grid-template-columns:minmax(320px,580px) 1fr;gap:40px;align-items:center;width:min(1280px,calc(100% - 56px));margin:auto}.story-steps{position:relative;height:420px}.chapter{position:absolute;inset:auto 0;top:50%;transform:translateY(-42%);opacity:0;pointer-events:none;transition:.38s}.chapter.active{opacity:1;transform:translateY(-50%)}.chapter small{font:800 11px Manrope;letter-spacing:.2em;text-transform:uppercase;color:#ef9aa0}.chapter h3{font:700 clamp(44px,5.5vw,78px)/.96 Manrope;letter-spacing:-.05em;margin:14px 0 18px}.chapter p{max-width:480px;color:#cad2dc;line-height:1.8}.chapter .meta{margin-top:24px;display:flex;gap:18px;font-size:11px;color:#fff}.chapter .meta span{padding:9px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(7,17,29,.35);backdrop-filter:blur(10px)}.progress-rail{position:absolute;right:0;top:50%;transform:translateY(-50%);height:260px;width:2px;background:rgba(255,255,255,.18)}.progress-fill{width:100%;height:0;background:#fff}.progress-numbers{position:absolute;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;justify-content:space-between;height:260px;font-size:10px;color:#8f9baa}.progress-numbers b.active{color:#fff}
+.horizontal{background:#f8f5ef;color:var(--ink);padding:120px 0;overflow:hidden}.h-head{width:min(1280px,calc(100% - 48px));margin:0 auto 50px;display:flex;align-items:end;justify-content:space-between;gap:30px}.h-head h2{font:700 clamp(42px,6vw,74px)/1 Manrope;letter-spacing:-.05em;margin:12px 0}.h-head p{max-width:430px;color:#68707a;line-height:1.7}.cards-wrap{overflow:hidden}.cards-row{display:flex;gap:18px;padding-left:max(24px,calc((100vw - 1280px)/2));padding-right:24px;will-change:transform}.card{flex:0 0 min(72vw,660px);height:520px;border-radius:28px;overflow:hidden;position:relative;background:#ddd}.card img{height:100%;object-fit:cover;transition:.7s var(--ease)}.card:hover img{transform:scale(1.04)}.card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,13,21,.84),transparent 62%)}.card-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:28px;color:#fff}.card-copy small{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#f0c9cb}.card-copy h3{font:700 35px Manrope;letter-spacing:-.035em;margin:8px 0}.card-copy p{max-width:480px;color:#e3e8ee;font-size:13px;line-height:1.65}.drag-note{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#949ba3}
+.numbers{background:#0c1725;padding:130px 24px}.numbers-grid{width:min(1200px,100%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15)}.num{padding:50px 26px;border-right:1px solid rgba(255,255,255,.15)}.num:last-child{border-right:0}.num strong{display:block;font:700 clamp(42px,5vw,72px) Manrope;letter-spacing:-.05em}.num span{font-size:11px;color:#99a7b8;text-transform:uppercase;letter-spacing:.12em}
+.reveal-zone{background:#efe9de;color:var(--ink);padding:150px 24px}.reveal-grid{width:min(1200px,100%);margin:auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}.reveal-copy h2{font:700 clamp(46px,6vw,78px)/1 Manrope;letter-spacing:-.05em;margin:14px 0 22px}.reveal-copy p{color:#626a74;line-height:1.8}.interactive-panel{height:620px;border-radius:34px;overflow:hidden;position:relative;background:#141e2b;box-shadow:0 30px 80px rgba(28,32,38,.2)}.panel-image{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=88') center/cover;transition:.8s var(--ease)}.interactive-panel:hover .panel-image{transform:scale(1.05)}.panel-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,14,23,.82),rgba(7,14,23,.1) 60%)}.hotspot{position:absolute;width:28px;height:28px;border-radius:50%;border:1px solid #fff;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);cursor:pointer}.hotspot:before{content:"+";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:18px}.hotspot:after{content:"";position:absolute;inset:-8px;border:1px solid rgba(255,255,255,.35);border-radius:50%;animation:pulse 2s infinite}@keyframes pulse{50%{transform:scale(1.3);opacity:0}}.hotspot.one{left:24%;top:45%}.hotspot.two{right:25%;top:34%}.hotspot.three{right:36%;bottom:22%}.panel-note{position:absolute;left:24px;right:24px;bottom:24px;background:rgba(255,255,255,.92);color:var(--ink);border-radius:18px;padding:18px 20px;transform:translateY(130%);transition:.45s var(--ease);box-shadow:0 18px 40px rgba(0,0,0,.18)}.panel-note.show{transform:none}.panel-note b{font:700 17px Manrope}.panel-note p{margin:5px 0 0;font-size:12px;line-height:1.6;color:#68707a}
+.final{min-height:100vh;position:relative;display:grid;place-items:center;text-align:center;padding:100px 24px;overflow:hidden}.final-bg{position:absolute;inset:-4%;background:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=90') center/cover;transform:scale(1.06)}.final:after{content:"";position:absolute;inset:0;background:rgba(5,10,18,.72)}.final-copy{position:relative;z-index:2;max-width:900px}.final h2{font:700 clamp(52px,8vw,108px)/.9 Manrope;letter-spacing:-.06em;margin:16px 0 24px}.final p{color:#cbd4df;font-size:16px;line-height:1.8;max-width:630px;margin:0 auto}.final .hero-actions{justify-content:center}.footer{padding:34px 24px;background:#070c13;color:#8e9cac;font-size:11px}.footer-inner{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.wa{position:fixed;z-index:180;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-weight:800;box-shadow:0 16px 34px rgba(0,0,0,.26)}
+@media(max-width:900px){.navlinks{display:none}.burger{display:block}.hero-copy{left:24px;right:24px;width:auto}.hero h1{font-size:clamp(54px,15vw,86px)}.story-ui{grid-template-columns:1fr;width:calc(100% - 40px)}.progress-rail,.progress-numbers{display:none}.chapter h3{font-size:50px}.h-head{display:block}.card{flex-basis:84vw;height:460px}.numbers-grid{grid-template-columns:1fr 1fr}.num:nth-child(2){border-right:0}.num:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.15)}.reveal-grid{grid-template-columns:1fr;gap:42px}.interactive-panel{height:520px}}
+@media(max-width:600px){.nav{width:calc(100% - 30px)}.header{height:70px}.logo-text span{display:none}.hero{height:112vh}.hero-copy{top:52%}.hero p{font-size:14px}.scrollhint{right:18px;bottom:22px}.intro{padding:95px 20px}.intro p{font-size:14px}.story-track{height:390vh}.story-ui{width:calc(100% - 36px)}.chapter h3{font-size:43px}.chapter p{font-size:13px}.chapter .meta{gap:7px;flex-wrap:wrap}.horizontal{padding:90px 0}.h-head{width:calc(100% - 36px)}.cards-row{padding-left:18px}.card{flex-basis:88vw;height:430px}.card-copy{left:20px;right:20px;bottom:20px}.card-copy h3{font-size:28px}.numbers{padding:80px 18px}.numbers-grid{grid-template-columns:1fr}.num,.num:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}.num:last-child{border-bottom:0}.reveal-zone{padding:95px 18px}.interactive-panel{height:440px}.final{padding:90px 18px}.final h2{font-size:56px}}
+
+/* Mobile-first interactive experience */
+.mobile-cta{display:none}
+.mobile-progress{display:none}
+@media(max-width:600px){
+  body{padding-bottom:72px}
+  .header{background:linear-gradient(180deg,rgba(6,12,20,.78),transparent)}
+  .header.scrolled{background:rgba(8,14,24,.92)}
+  .navcta{display:none}
+  .burger{display:none}
+
+  /* Mobile hero: immersive first screen, lighter motion than desktop */
+  .hero{height:100svh;min-height:680px}
+  .hero-sticky{height:100svh;position:relative}
+  .hero-bg{inset:0;transform:scale(1.02)!important;background-position:58% center}
+  .hero-shade{background:linear-gradient(180deg,rgba(5,10,18,.16) 15%,rgba(5,10,18,.5) 48%,rgba(5,10,18,.92) 92%)}
+  .hero-copy{left:20px;right:20px;top:auto;bottom:76px;transform:none!important;width:auto;opacity:1!important}
+  .hero h1{font-size:clamp(48px,14vw,70px);line-height:.92;margin:14px 0 16px}
+  .hero p{font-size:13px;line-height:1.65;max-width:90%}
+  .hero-actions{margin-top:22px}
+  .hero-actions .btn{padding:13px 16px;font-size:12px}
+  .scrollhint{left:20px;right:auto;bottom:20px}.mouse{display:none}
+
+  .intro{padding:82px 20px 74px}
+  .intro h2{font-size:44px;line-height:1.03;margin:15px 0 20px}
+  .intro p{margin:0;font-size:14px;line-height:1.75}
+
+  /* Mobile scrollytelling: full-screen image + bottom story card */
+  .story-track{height:360vh}
+  .story-sticky{height:100svh;top:0}
+  .story-image img{object-position:center;transform:scale(1.025)!important}
+  .story-overlay{background:linear-gradient(180deg,rgba(5,10,18,.05) 10%,rgba(5,10,18,.22) 42%,rgba(5,10,18,.94) 82%)}
+  .story-ui{display:block;position:absolute;inset:0;width:100%;padding:0 18px}
+  .story-steps{position:absolute;left:18px;right:18px;bottom:68px;height:300px}
+  .chapter{top:auto;bottom:0;transform:translateY(26px);padding:20px;border:1px solid rgba(255,255,255,.13);border-radius:22px;background:rgba(5,12,21,.58);backdrop-filter:blur(16px);opacity:0}
+  .chapter.active{transform:none;opacity:1}
+  .chapter small{font-size:9px}
+  .chapter h3{font-size:36px;line-height:.98;margin:10px 0 12px}
+  .chapter p{font-size:12px;line-height:1.55;margin:0}
+  .chapter .meta{margin-top:14px;gap:6px}.chapter .meta span{font-size:9px;padding:7px 9px}
+  .mobile-progress{display:flex;position:absolute;left:22px;right:22px;bottom:32px;z-index:5;gap:7px}
+  .mobile-progress i{height:3px;flex:1;background:rgba(255,255,255,.25);border-radius:99px;overflow:hidden}
+  .mobile-progress i:after{content:"";display:block;width:0;height:100%;background:#fff;transition:width .25s ease}
+  .mobile-progress i.active:after{width:100%}
+
+  /* Native touch-swipe cards on mobile */
+  .horizontal{padding:78px 0 86px}
+  .h-head{width:calc(100% - 40px);margin-bottom:30px}
+  .h-head h2{font-size:42px;line-height:1.02;margin:10px 0 14px}
+  .h-head p{font-size:13px;line-height:1.65}
+  .drag-note:after{content:"  •  swipe with your finger"}
+  .cards-wrap{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:18px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .cards-wrap::-webkit-scrollbar{display:none}
+  .cards-row{transform:none!important;padding-left:18px;padding-right:18px;width:max-content}
+  .card{flex:0 0 84vw;height:470px;scroll-snap-align:start;border-radius:24px}
+  .card:hover img{transform:none}
+  .card-copy h3{font-size:30px}.card-copy p{font-size:12px}
+
+  /* Stats become a compact horizontal strip */
+  .numbers{padding:72px 0;overflow:hidden}
+  .numbers-grid{display:flex;width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px;border:0;gap:10px;scrollbar-width:none}
+  .numbers-grid::-webkit-scrollbar{display:none}
+  .num,.num:nth-child(2){flex:0 0 72vw;scroll-snap-align:center;border:1px solid rgba(255,255,255,.13)!important;border-radius:20px;padding:30px 22px;background:rgba(255,255,255,.035)}
+  .num strong{font-size:54px}.num span{font-size:10px}
+
+  .reveal-zone{padding:80px 18px 92px}
+  .reveal-grid{gap:28px}.reveal-copy h2{font-size:43px}.reveal-copy p{font-size:13px}
+  .interactive-panel{height:500px;border-radius:26px}
+  .hotspot{width:40px;height:40px}.hotspot:after{inset:-9px}.hotspot:before{font-size:22px}
+  .panel-note{left:14px;right:14px;bottom:14px;padding:16px 17px;border-radius:16px}
+  .panel-note b{font-size:15px}.panel-note p{font-size:11px}
+
+  .final{min-height:88svh;padding:82px 20px 100px}
+  .final-bg{transform:scale(1.02)!important;background-position:62% center}
+  .final h2{font-size:52px;line-height:.92}.final p{font-size:13px}
+  .footer{padding-bottom:26px}.wa{display:none}
+
+  /* Persistent mobile conversion bar */
+  .mobile-cta{display:grid;grid-template-columns:.8fr 1.2fr;gap:8px;position:fixed;z-index:250;left:10px;right:10px;bottom:10px;padding:8px;background:rgba(9,15,24,.92);border:1px solid rgba(255,255,255,.11);border-radius:18px;backdrop-filter:blur(18px);box-shadow:0 16px 50px rgba(0,0,0,.28)}
+  .mobile-cta a{min-height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+  .mobile-cta .spaces{background:rgba(255,255,255,.08);color:#fff}.mobile-cta .enquire{background:var(--red);color:#fff}
+}
+
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="loader"><div class="load-inner"><div class="mark">T</div><strong>TARBIZ</strong><div class="loadbar"><i></i></div></div></div>
+<header class="header" id="header"><nav class="nav"><a class="logo" href="#top"><span class="logo-box">T</span><span class="logo-text"><b>TARBIZ</b><span>CORPORATE SPACE · KUALA LUMPUR</span></span></a><div class="navlinks"><a href="#experience">Experience</a><a href="#spaces">Spaces</a><a href="#facilities">Facilities</a><a href="#contact">Location</a><a class="navcta" href="#contact">Enquire</a></div><button class="burger" aria-label="Menu">☰</button></nav></header>
+<main id="top">
+<section class="hero" id="experience"><div class="hero-sticky"><div class="hero-bg" id="heroBg"></div><div class="hero-shade"></div><div class="hero-copy" id="heroCopy"><div class="kicker">Jalan Tuanku Abdul Rahman · Kuala Lumpur</div><h1>Space that <span>moves with you.</span></h1><p>From focused meetings to full-scale corporate events, TARBIZ is designed as a flexible business environment in the heart of Kuala Lumpur.</p><div class="hero-actions"><a class="btn btn-red" href="#spaces">Explore the spaces →</a><a class="btn btn-glass" href="#contact">Plan an event</a></div></div><div class="scrollhint"><span>Scroll to experience</span><i class="mouse"></i></div></div></section>
+<section class="intro"><div class="intro-inner"><div class="intro-label">Not just another venue</div><h2>One destination.<br><span class="soft">Different ways to work.</span></h2><p>TARBIZ brings together seminar halls, meeting rooms, studio environments and business suites within one professional address. The page below is built as a visual journey — your scroll controls what you see next.</p></div></section>
+<section class="story" id="spaces"><div class="story-track" id="storyTrack"><div class="story-sticky"><div class="story-image" id="storyImages"><img class="active" src="https://res.cloudinary.com/dayfv4et9/image/upload/w_1800/q_auto/f_auto/501317_605_%281%29.jpeg" alt="TARBIZ corporate venue"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=88" alt="Meeting room"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=88" alt="Business suite"><img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1800&q=88" alt="Studio workspace"></div><div class="story-overlay"></div><div class="story-ui"><div class="story-steps"><article class="chapter active"><small>01 · Corporate Events</small><h3>Make the room fit the moment.</h3><p>A flexible setting for seminars, presentations, launches and business gatherings — configured around your event, not the other way around.</p><div class="meta"><span>Seminars</span><span>Corporate Events</span><span>Flexible Setup</span></div></article><article class="chapter"><small>02 · Meetings</small><h3>Smaller room. Sharper focus.</h3><p>Professional meeting environments for discussions, workshops, client presentations and private sessions.</p><div class="meta"><span>Meeting Room</span><span>Presentation</span><span>Private</span></div></article><article class="chapter"><small>03 · Business Suites</small><h3>Your workday, already considered.</h3><p>Business-ready spaces for teams and professionals who need a central KL base with a polished corporate setting.</p><div class="meta"><span>Business Suite</span><span>Central KL</span><span>Professional</span></div></article><article class="chapter"><small>04 · Studio & Creative Use</small><h3>Built for more than meetings.</h3><p>Adaptable studio-style space adds another layer of possibility for content, workshops and creative business use.</p><div class="meta"><span>Studio</span><span>Content</span><span>Workshops</span></div></article></div><div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div><div class="progress-numbers"><b class="active">01</b><b>02</b><b>03</b><b>04</b></div></div><div class="mobile-progress" id="mobileProgress"><i class="active"></i><i></i><i></i><i></i></div></div></div></section>
+<section class="horizontal" id="facilities"><div class="h-head"><div><div class="intro-label">Explore TARBIZ</div><h2>Every space has a different role.</h2></div><p>On desktop, this row moves sideways as you scroll through the section — another example of interaction beyond normal up-and-down page movement.</p></div><div class="cards-wrap" id="cardsWrap"><div class="cards-row" id="cardsRow"><article class="card"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=88" alt="Seminar hall"><div class="card-copy"><small>01 · Seminar Hall</small><h3>Room to present.</h3><p>For talks, presentations, training and company events that need a more formal setup.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=88" alt="Meeting space"><div class="card-copy"><small>02 · Meeting Room</small><h3>Room to decide.</h3><p>A focused setting for smaller teams, consultations and important conversations.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=88" alt="Business suite"><div class="card-copy"><small>03 · Business Suite</small><h3>Room to work.</h3><p>A professional central KL base for productive work and business use.</p></div></article><article class="card"><img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=1200&q=88" alt="Studio"><div class="card-copy"><small>04 · Studio</small><h3>Room to create.</h3><p>Flexible space for workshops, content, discussions and creative sessions.</p></div></article></div></div></section>
+<section class="numbers"><div class="numbers-grid"><div class="num"><strong data-count="4">0</strong><span>Space types</span></div><div class="num"><strong data-count="1">0</strong><span>Central KL address</span></div><div class="num"><strong data-count="100">0</strong><span>Flexible possibilities</span></div><div class="num"><strong data-count="360">0</strong><span>Business-ready experience</span></div></div></section>
+<section class="reveal-zone"><div class="reveal-grid"><div class="reveal-copy"><div class="intro-label">Interactive detail</div><h2>Let visitors discover, not just read.</h2><p>Hover or tap the points on the image. Instead of listing every facility as a normal card, the page can let the visitor explore the environment directly.</p></div><div class="interactive-panel"><div class="panel-image"></div><div class="panel-shade"></div><button class="hotspot one" data-title="Flexible Configuration" data-text="Layouts can be adapted for different event and meeting formats." aria-label="Flexible configuration"></button><button class="hotspot two" data-title="Professional Environment" data-text="A polished setting designed for business use, presentations and client-facing sessions." aria-label="Professional environment"></button><button class="hotspot three" data-title="Central Kuala Lumpur" data-text="Convenient positioning around Jalan Tuanku Abdul Rahman for teams and guests." aria-label="Central Kuala Lumpur"></button><div class="panel-note" id="panelNote"><b id="panelTitle">Flexible Configuration</b><p id="panelText">Layouts can be adapted for different event and meeting formats.</p></div></div></div></section>
+<section class="final" id="contact"><div class="final-bg" id="finalBg"></div><div class="final-copy"><div class="kicker" style="justify-content:center">TARBIZ Kuala Lumpur</div><h2>Bring your next idea into the room.</h2><p>Tell us what you are planning and we’ll help you identify the most suitable TARBIZ space and setup.</p><div class="hero-actions"><a class="btn btn-red" href="https://wa.me/60168083598?text=Hi%20TARBIZ%2C%20I%27d%20like%20to%20enquire%20about%20your%20corporate%20spaces." target="_blank">Enquire on WhatsApp →</a><a class="btn btn-glass" href="#spaces">View spaces again</a></div></div></section>
+</main>
+<footer class="footer"><div class="footer-inner"><span>© 2026 TARBIZ · Interactive concept demo</span><span>Jalan Tuanku Abdul Rahman · Kuala Lumpur</span></div></footer><a class="wa" href="https://wa.me/60168083598?text=Hi%20TARBIZ%2C%20I%27d%20like%20to%20enquire." target="_blank" aria-label="WhatsApp">WA</a>
+<div class="mobile-cta"><a class="spaces" href="#spaces">View Spaces</a><a class="enquire" href="https://wa.me/60168083598?text=Hi%20TARBIZ%2C%20I%27d%20like%20to%20enquire%20about%20your%20corporate%20spaces." target="_blank">Enquire on WhatsApp</a></div>
+<script>
+const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),350));
+const header=document.getElementById('header'),heroBg=document.getElementById('heroBg'),heroCopy=document.getElementById('heroCopy'),finalBg=document.getElementById('finalBg');
+const storyTrack=document.getElementById('storyTrack'),chapters=[...document.querySelectorAll('.chapter')],storyImgs=[...document.querySelectorAll('#storyImages img')],nums=[...document.querySelectorAll('.progress-numbers b')],fill=document.getElementById('progressFill');
+const cardsWrap=document.getElementById('cardsWrap'),cardsRow=document.getElementById('cardsRow'),mobileBars=[...document.querySelectorAll('#mobileProgress i')];
+function update(){
+  const y=scrollY,isMobile=innerWidth<=600;
+  header.classList.toggle('scrolled',y>30);
+  if(!reduced){
+    if(!isMobile){
+      const hp=clamp(y/(innerHeight*.95),0,1);
+      heroBg.style.transform=`scale(${1.08-hp*.06}) translateY(${hp*20}px)`;
+      heroCopy.style.opacity=1-hp*.86;
+      heroCopy.style.transform=`translateY(calc(-47% - ${hp*45}px))`;
+    }
+    const r=storyTrack.getBoundingClientRect();
+    const span=r.height-innerHeight;
+    const p=clamp(-r.top/span,0,1);
+    const idx=Math.min(3,Math.floor(p*4));
+    chapters.forEach((el,i)=>el.classList.toggle('active',i===idx));
+    storyImgs.forEach((el,i)=>{
+      el.classList.toggle('active',i===idx);
+      if(!isMobile) el.style.transform=`scale(${1.08-(p*4-i)*.025})`;
+    });
+    nums.forEach((el,i)=>el.classList.toggle('active',i===idx));
+    mobileBars.forEach((el,i)=>el.classList.toggle('active',i<=idx));
+    fill.style.height=`${p*100}%`;
+    if(!isMobile){
+      const hw=cardsWrap.getBoundingClientRect();
+      const viewport=innerHeight;
+      const enter=clamp((viewport-hw.top)/(viewport+hw.height),0,1);
+      const overflow=Math.max(0,cardsRow.scrollWidth-innerWidth+48);
+      cardsRow.style.transform=`translateX(${-overflow*enter}px)`;
+      const fr=document.querySelector('.final').getBoundingClientRect();
+      const fp=clamp((innerHeight-fr.top)/(innerHeight+fr.height),0,1);
+      finalBg.style.transform=`scale(${1.08-fp*.05}) translateY(${(fp-.5)*20}px)`;
+    }else{
+      cardsRow.style.transform='none';
+    }
+  }
+}
+requestAnimationFrame(function loop(){update();requestAnimationFrame(loop)});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('[data-count]').forEach(el=>{const end=+el.dataset.count;let start=0;const t0=performance.now();function tick(t){const p=clamp((t-t0)/1300,0,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.round(start+(end-start)*ease)+(end===100?'%':end===360?'°':'');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});observer.unobserve(e.target)}}),{threshold:.35});observer.observe(document.querySelector('.numbers'));
+const note=document.getElementById('panelNote'),pt=document.getElementById('panelTitle'),px=document.getElementById('panelText');document.querySelectorAll('.hotspot').forEach(b=>b.addEventListener('click',()=>{pt.textContent=b.dataset.title;px.textContent=b.dataset.text;note.classList.add('show')}));document.querySelector('.interactive-panel').addEventListener('mouseleave',()=>note.classList.remove('show'));
+</script>
+</body></html>
